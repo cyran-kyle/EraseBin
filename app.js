@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/create', limiter);
-//skip delete if it's the crawler from WhatsApp,insta, discord
+//skip delete if it's the crawler from WhatsApp,inyta, discord
 var shouldSkipDelete = (userAgent) => {
   if (!userAgent) return false;
   return [
