@@ -1,5 +1,6 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
+const path = require("path");
 const Paste = require("./src/models/paste.js");
 const { encrypt, decrypt } = require("./src/models/encryption.js");
 const generateURL = require("./src/models/generateUrl.js");
@@ -8,6 +9,10 @@ const app = express();
 
 app.set("trust proxy", 1);
 app.use(express.json());
+
+// Serve static files from src directory
+app.use(express.static(path.join(__dirname, 'src')));
+
 //rate limit
 const limiter = rateLimit({
   windowMs: 5 * 60 * 1000,
@@ -18,6 +23,11 @@ const limiter = rateLimit({
   keyGenerator: (req) => {
     return req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   },
+});
+
+// Serve the main HTML page
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'index.html'));
 });
 
 app.use('/create', limiter);
