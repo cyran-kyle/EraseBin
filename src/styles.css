@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #0a0a0a;
+}
+
+.container {
+    background: rgba(20, 20, 20, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+textarea, input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #181818;
+    color: #fff;
+    resize: none;
+}
+
+button {
+    background: #6a0dad;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #8a2be2;
+}
+
+.loading-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.loading-container.active {
+    opacity: 1;
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(106, 13, 173, 0.3);
+    border-radius: 50%;
+    border-top-color: #6a0dad;
+    animation: spin 1s ease-in-out infinite;
+    position: relative;
+}
+
+.loading-spinner::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-top-color: rgba(138, 43, 226, 0.4);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #6a0dad;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
